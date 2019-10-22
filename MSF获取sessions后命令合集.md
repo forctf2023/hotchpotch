@@ -1,22 +1,22 @@
 # 核心命令 – 帮助菜单   
-background – 将当前会话移动到背景变成一个session，当再次使用时再用sessions -i ID调用
-bgkill – 杀死一个背景 meterpreter 脚本
-bglist – 提供所有正在运行的后台脚本的列表
-bgrun – 作为一个后台线程运行脚本
-channel – 显示活动频道
-close – 关闭通道
-exit – 终止 meterpreter 会话
-help – 帮助菜单
-interact – 与通道进行交互
-irb – 进入 Ruby 脚本模式
+background – 将当前会话移动到背景变成一个session，当再次使用时再用sessions -i ID调用   
+bgkill – 杀死一个背景 meterpreter 脚本   
+bglist – 提供所有正在运行的后台脚本的列表   
+bgrun – 作为一个后台线程运行脚本   
+channel – 显示活动频道   
+close – 关闭通道   
+exit – 终止 meterpreter 会话   
+help – 帮助菜单   
+interact – 与通道进行交互   
+irb – 进入 Ruby 脚本模式   
 
-migrate – 移动到一个指定的 PID 的活动进程
-quit – 终止 meterpreter 会话
-read – 从通道读取数据
+migrate – 移动到一个指定的 PID 的活动进程   
+quit – 终止 meterpreter 会话   
+read – 从通道读取数据   
 
-run – 执行以后它选定的 meterpreter 脚本
-use – 加载 meterpreter 的扩展
-write – 将数据写入到一个通道
+run – 执行以后它选定的 meterpreter 脚本   
+use – 加载 meterpreter 的扩展   
+write – 将数据写入到一个通道   
 
 
 # 文件系统命令   
