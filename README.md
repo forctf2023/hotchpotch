@@ -1,6 +1,9 @@
 # hotchpotch
 Hotchpotch of some knowledge.
 
+### nice 技术学习网站： https://huntingday.github.io/    
+
+
 - CSRF(Cross-site Request Forgery)跨站请求伪造
 [参考链接](https://www.cnblogs.com/liuqingzheng/p/9505044.html)
 
