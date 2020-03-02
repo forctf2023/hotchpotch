@@ -22,7 +22,7 @@ msf auxiliary(smb_ms17_010) > set rhosts file:/root/pentest/10-all.txt
 当32位程序需要访问Program Files或者System32中的文件时，系统会自动转向到Program Files (x86)或者SysWoW64中，这样32位的程序就可以正常的在64位Windows中运行了。类似的情况也发生在应用程序安装的时候，64位的程序一般都会被安装到Program Files中，而32位的程序则是装在Program Files (x86)中。
 
 ###  Compile C, C++, Objective-C, Ada, Fortran, Java, or treelang   
-参考：http://gcc.gnu.org/onlinedocs/gcc-3.3.5/gcc/G_002b_002b-and-GCC.html
+参考：http://gcc.gnu.org/onlinedocs/gcc-3.3.5/gcc/G_002b_002b-and-GCC.html   
 Several versions of the compiler (C, C++, Objective-C, Ada, Fortran, Java and treelang) are integrated; this is why we use the name “GNU Compiler Collection”. GCC can compile programs written in any of these languages. The Ada, Fortran, Java and treelang compilers are described in separate manuals.
 
 “GCC” is a common shorthand term for the GNU Compiler Collection. This is both the most general name for the compiler, and the name used when the emphasis is on compiling C programs (as the abbreviation formerly stood for “GNU C Compiler”).
