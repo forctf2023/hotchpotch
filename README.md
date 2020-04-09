@@ -38,3 +38,52 @@ Front ends for other languages, such as Mercury and Pascal exist but have not ye
 In this manual, we only discuss the options for the C, Objective-C, and C++ compilers and those of the GCC core. Consult the documentation of the other front ends for the options to use when compiling programs written in other languages.
 
 G++ is a compiler, not merely a preprocessor. G++ builds object code directly from your C++ program source. There is no intermediate C version of the program. (By contrast, for example, some other implementations use a program that generates a C program from your C++ source.) Avoiding an intermediate C representation of the program means that you get better object code, and better debugging information. The GNU debugger, GDB, works with this information in the object code to give you comprehensive C++ source-level editing capabilities (see C and C++ (Debugging with GDB)).
+
+
+## Linux内核版本与系统版本信息查看以及x86与x86_64的区别
+### 一、 x86与x86_64
+
+x86、x86_64主要的区别就是32位和64位的问题。
+
+x86 ======> 32位
+x86_64 和 x64 以及AMD64 ======> 都是64位
+
+　　x86是指intel的开发的一种32位指令集，从386开始时代开始的，一直沿用至今，是一种cisc指令集，所有intel早期的cpu，amd早期的cpu都支持这种指令集，ntel官方文档里面称为“IA-32”
+
+　　 x84_64是x86 CPU开始迈向64位的时候，有2选择：1、向下兼容x86。2、完全重新设计指令集，不兼容x86。AMD抢跑了，比Intel率先制造出了商用的兼容x86的CPU，AMD称之为AMD64。而Intel选择了设计一种不兼容x86的全新64为指令集，称之为IA-64，但是比amd晚了一步，因为是全新设计的CPU，没有编译器，也不支持windows、后来不得不在时机落后的情况下也开始支持AMD64的指令集，但是换了个名字，叫x86_64，表示是x86指令集的64扩展，。也就是说实际上，x86_64,x64,AMD64基本上是同一个东西。
+
+### 二、查看Linux内核信息
+```
+[root@localhost ~]# cat /proc/version
+Linux version 2.6.32-642.el6.x86_64 (mockbuild@worker1.bsys.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-17) (GCC) ) #1 SMP Tue May 10 17:27:01 UTC 2016
+[root@localhost ~]# uname -r
+2.6.32-642.el6.x86_64
+[root@localhost ~]# uname -a
+Linux localhost.localdomain 2.6.32-642.el6.x86_64 #1 SMP Tue May 10 17:27:01 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+uname -r 显示的结果是什么意思?
+2.6.32-642.el6.x86_64
+2： —->主版本号
+6： —–>次版本号 6 表示稳定版本
+32： —–>修订版本号，表示修订次数
+```
+### 三、查看Linux版本信息
+```
+[root@localhost ~]# cat /etc/issue
+CentOS release 6.8 (Final)
+Kernel \r on an \m
+[root@localhost ~]# cat /etc/redhat-release
+CentOS release 6.8 (Final)
+[root@localhost ~]# file /bin/bash
+/bin/bash: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.18, stripped
+[root@localhost ~]# file /bin/cat
+/bin/cat: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.18, stripped
+```
+### 四、查看当前系统的位数
+上面已经可以看出来uname -r cat /proc/version uname -a 都可以查看内核的位数，file /bin/bash 以及 file /bin/cat 可以查看当前你系统的位数。对应的结果是 x86_64 也即是64位。
+
+但是还有更简单粗暴的方法：
+```
+[root@localhost ~]# getconf LONG_BIT
+64
+```
+显示的结果直接就是位数。
