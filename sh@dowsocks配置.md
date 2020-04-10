@@ -7,7 +7,7 @@ root@XS103852412:~# cat shadowsocks.json
 {
 "server":"0.0.0.0",
 "server_port":10666,
-"password":"www.pass@word.com",
+"password":"xxxx",
 "local_address":"127.0.0.1",
 "local_port":1080,
 "timeout":600,
