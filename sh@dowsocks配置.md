@@ -14,9 +14,14 @@ root@XS103852412:~# cat shadowsocks.json
 "method":"aes-256-cfb"
 }
 ```
+
 ```
 root@XS103852412:~# ssserver -c shadowsocks.json
 INFO: loading config from shadowsocks.json
 2020-03-28 21:24:10 INFO     loading libcrypto from libcrypto.so.1.0.0
 2020-03-28 21:24:10 INFO     starting server at 0.0.0.0:10666
+```
+nohup启动接口保持后台运行：
+```
+root@XS103852412:~# nohup ssserver -c shadowsocks.json
 ```
