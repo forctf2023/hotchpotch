@@ -1,6 +1,6 @@
 安装 shadowsocks
 ```
-$ sudo pip install shadowsocks
+$ sudo apt install shadowsocks
 ```
 ```
 root@XS103852412:~# cat shadowsocks.json 
@@ -23,5 +23,5 @@ INFO: loading config from shadowsocks.json
 ```
 nohup启动接口保持后台运行：
 ```
-root@XS103852412:~# nohup ssserver -c shadowsocks.json
+root@XS103852412:~# nohup ssserver -c shadowsocks.json &
 ```
