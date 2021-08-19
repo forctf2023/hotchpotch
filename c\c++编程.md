@@ -1,5 +1,9 @@
 ### CRT MFC ATL
 
+我的理解 CRT是最底层的，连windows API都是基于CRT编写的；ATL基于CRT，是静态链接了CRT代码；
+
+https://blog.csdn.net/memeai/article/details/20037773
+
 CRT原先是指Microsoft开发的C Runtime Library，用于操作系统的开发及运行。后来在此基础上开发了C++ Runtime Library，所以现在CRT是指Microsoft开发的C/C++ Runtime Library。在VC的CRT/SRC目录下，可以看到CRT的源码，不仅有C的，也有C++的。
 
      CRT原先的目的就是支持操作系统的运行。因为Windows操作系统除汇编部分外，都是用C/C++编写的，所以内核及许多关键服务都在CRT上运行（它们都采用dll技术动态链接）。此外，用 VC编写的C/C++程序也用到它们（可以动态链接，也可以静态链接，前者运行时需要系统中已安装CRT的dll，后者不需要）。可以说，CRT就是 Microsoft编写Windows时使用的低层类库。然后，它又被当作C++标准库的一个实现包含在了VC系列中；我们在VC中使用的C++标准库，其实就是CRT的一个真子集（少了C++标准所不包含的代码，特别是大量的低层C代码）
