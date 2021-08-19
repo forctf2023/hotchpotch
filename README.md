@@ -29,11 +29,7 @@ msf auxiliary(smb_ms17_010) > set rhosts file:/root/pentest/10-all.txt
 
         This is where most manually installed(ie. outside of your package manager) software goes. It has the same structure as /usr. It is a good idea to leave /usr to your package manager and put any custom scripts and things into /usr/local, since nothing important normally lives in /usr/local.
 
-        这里主要存放那些手动安装的软件，即不是通过“新立得”或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下面，我想这应该是个不错的主意。
-
-        
-        
-        
+        这里主要存放那些手动安装的软件，即不是通过“新立得”或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本(scripts)放到/usr/local目录下面，我想这应该是个不错的主意。           
         
 - windows  C:\Program Files和C:\Windows\System32 与  C:\Program Files (86)和C:\Windows\SysWoW64
 64位Windows中提供了一种技术，Windows on Windows 64(即WoW64)。它可以使32位的应用程序正常地运行在64位的Windows中，这样用户在从32位到64位过渡的过程中，不会感受到很大的不便。为了能让32位的程序正常运行，64位的Windows中自带了一大部分的32位的系统文件，当32位程序运行的时候，系统会给它虚拟出一个32位的环境，这样32位程序会以为自己运行在32位Windows中。Windows的系统文件主要是存放在%SystemDrive%\Program Files和%Windir%\System32中（即通常的C:\Program Files和C:\Windows\System32)。64位系统中，这两个文件夹存放的是64位的系统文件，为了存放32位的同名系统文件，64位系统中有另外两个文件夹与之对应，%SystemDrive%\Program Files (86)和%Windir%\SysWoW64（即通常的C:\Program Files (86)和C:\Windows\SysWoW64)。
@@ -64,7 +60,7 @@ G++ is a compiler, not merely a preprocessor. G++ builds object code directly fr
 
 x86、x86_64主要的区别就是32位和64位的问题。
 
-x86 ======> 32位
+x86 ======> 32位   
 x86_64 和 x64 以及AMD64 ======> 都是64位
 
 　　x86是指intel的开发的一种32位指令集，从386开始时代开始的，一直沿用至今，是一种cisc指令集，所有intel早期的cpu，amd早期的cpu都支持这种指令集，ntel官方文档里面称为“IA-32”
