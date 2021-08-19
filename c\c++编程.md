@@ -1,15 +1,21 @@
-#### CRT MFC ATL   
+### CRT MFC ATL
 
-CRT原先是指Microsoft开发的C Runtime Library，用于操作系统的开发及运行。后来在此基础上开发了C++ Runtime Library，所以现在CRT是指Microsoft开发的C/C++ Runtime Library。在VC的CRT/SRC目录下，可以看到CRT的源码，不仅有C的，也有C++的。   
-CRT原先的目的就是支持操作系统的运行。因为Windows操作系统除汇编部分外，都是用C/C++编写的，所以内核及许多关键服务都在CRT上运行（它们都采用dll技术动态链接）。此外，用 VC编写的C/C++程序也用到它们（可以动态链接，也可以静态链接，前者运行时需要系统中已安装CRT的dll，后者不需要）。可以说，CRT就是 Microsoft编写Windows时使用的低层类库。然后，它又被当作C++标准库的一个实现包含在了VC系列中；我们在VC中使用的C++标准库，其实就是CRT的一个真子集（少了C++标准所不包含的代码，特别是大量的低层C代码）
-至于CRT与WINDOWS API的关系，与许多人理解的相反，WINDOWS API作为Windows的一部份，是在CRT的基础上开发的。你可以将Windows（及其API）看作一个项目，而这个项目使用的语言是汇编/C/C ++，使用的类库就是CRT。所以，离开CRT，Windows API也无法使用的。   
-C++标准，是C++的通用语言规范，指导所有C ++使用者。而CRT的其中一部分可以看作是Microsoft开发的一个C++标准库实现（其实也确实如此，Microsoft在开发CRT时，参考了正在标准化过程中的C++语言规范）。它与C++标准有一定的差距，部分原因是，在C++没有完成标准化之前，CRT已经开发并投入使用了。为了向下兼容以前的Windows代码，早期的CRT与C++标准总有一定的差距。但是CRT确实在不断的改进中。VC6带的CRT与C++标准还有比较大的差距，而 VC8的几乎完全符合C++标准了。   
-综上，CRT（Microsoft's C/C++ Runtime Library）的一个真子集（主要是C++ Runtime Library）是一个符合（或至少是企图符合）C++标准的C++库。而Windows API（以及Windows的其他许多部分）都是在CRT的基础上开发的。   
+CRT原先是指Microsoft开发的C Runtime Library，用于操作系统的开发及运行。后来在此基础上开发了C++ Runtime Library，所以现在CRT是指Microsoft开发的C/C++ Runtime Library。在VC的CRT/SRC目录下，可以看到CRT的源码，不仅有C的，也有C++的。
+
+     CRT原先的目的就是支持操作系统的运行。因为Windows操作系统除汇编部分外，都是用C/C++编写的，所以内核及许多关键服务都在CRT上运行（它们都采用dll技术动态链接）。此外，用 VC编写的C/C++程序也用到它们（可以动态链接，也可以静态链接，前者运行时需要系统中已安装CRT的dll，后者不需要）。可以说，CRT就是 Microsoft编写Windows时使用的低层类库。然后，它又被当作C++标准库的一个实现包含在了VC系列中；我们在VC中使用的C++标准库，其实就是CRT的一个真子集（少了C++标准所不包含的代码，特别是大量的低层C代码）
+
+      至于CRT与WINDOWS API的关系，与许多人理解的相反，WINDOWS API作为Windows的一部份，是在CRT的基础上开发的。你可以将Windows（及其API）看作一个项目，而这个项目使用的语言是汇编/C/C ++，使用的类库就是CRT。所以，离开CRT，Windows API也无法使用的。
+
+       C++标准，是C++的通用语言规范，指导所有C ++使用者。而CRT的其中一部分可以看作是Microsoft开发的一个C++标准库实现（其实也确实如此，Microsoft在开发CRT时，参考了正在标准化过程中的C++语言规范）。它与C++标准有一定的差距，部分原因是，在C++没有完成标准化之前，CRT已经开发并投入使用了。为了向下兼容以前的Windows代码，早期的CRT与C++标准总有一定的差距。但是CRT确实在不断的改进中。VC6带的CRT与C++标准还有比较大的差距，而 VC8的几乎完全符合C++标准了。
+综上，CRT（Microsoft's C/C++ Runtime Library）的一个真子集（主要是C++ Runtime Library）是一个符合（或至少是企图符合）C++标准的C++库。而Windows API（以及Windows的其他许多部分）都是在CRT的基础上开发的。
    
-除了以上介绍的，在使用CRT的过程中，还需要了解的是：   
-1、CRT的一些组成部分也调用了Windows API。这可能就是有人认为CRT是建立的Windows API基础上的原因。但是实际上，这一部分剥离CRT没有任何的问题。只不过Microsoft将在Windows平台上可以使用的C/C++低层库都加入到CRT中。因此，CRT中很大一部分是操作系统平台无关的（原始的CRT），是开发Windows本身及其上一切的基础。它们也可以作为一个C/C+ +库在其他操作系统平台上使用。还有一部分，则是和Windows紧密绑定的，调用Windows API来实现的，可以看作扩展的CRT。之所以将这两部分放在一起，是因为它们都是开发Windows操作系统所需要的，也因为它们也都是Windows 平台上的C/C++程序员所需要的。这种复杂关系是Microsoft的人为因素造成的，不能因此认为CRT是建立在Windows或Windows API基础上的。   
-2、CRT的大部分内容是跨硬件平台的，但是也有一些部分，是直接用汇编写成、基于硬件平台、并根据特定硬件平台做的优化（而不是将生成机器码的责任完全交给编译器）。如早期对Indel的x32做了优化，现在由加入对AMD64的优化，这部分则是不跨硬件平台的。
-关于ATL。      
+      除了以上介绍的，在使用CRT的过程中，还需要了解的是：
+     
+      1、CRT的一些组成部分也调用了Windows API。这可能就是有人认为CRT是建立的Windows API基础上的原因。但是实际上，这一部分剥离CRT没有任何的问题。只不过Microsoft将在Windows平台上可以使用的C/C++低层库都加入到CRT中。因此，CRT中很大一部分是操作系统平台无关的（原始的CRT），是开发Windows本身及其上一切的基础。它们也可以作为一个C/C+ +库在其他操作系统平台上使用。还有一部分，则是和Windows紧密绑定的，调用Windows API来实现的，可以看作扩展的CRT。之所以将这两部分放在一起，是因为它们都是开发Windows操作系统所需要的，也因为它们也都是Windows 平台上的C/C++程序员所需要的。这种复杂关系是Microsoft的人为因素造成的，不能因此认为CRT是建立在Windows或Windows API基础上的。
+     
+      2、CRT的大部分内容是跨硬件平台的，但是也有一些部分，是直接用汇编写成、基于硬件平台、并根据特定硬件平台做的优化（而不是将生成机器码的责任完全交给编译器）。如早期对Indel的x32做了优化，现在由加入对AMD64的优化，这部分则是不跨硬件平台的。
+关于ATL
+     
       ATL是建立在CRT上的，如果你看了ATL的源码就知道了。至于不用链接，是因为ATL库静态链接了CRT，所以它可以在CRT之外运行。类似这样的误解在于混淆了作为低层基本库的CRT和作为产品而附带在VC中的CRT。虽然这两者是同样的代码，但是概念是不一样的。
      
       在编写操作系统时，你需要一个合适的低层库，以便完成一些基本的、多次重复的工作。于是，就有了CRT。在最低层的时候，根本连dll这个概念都没有的，所以CRT的源代码只能做成lib，被静态链接。然后，随着Windows越做越复杂，Microsoft提出了API的概念，它提供Windows开发者一组接口，可以直接操作Windows，这就是Windows API了。当然，Windows API也是在CRT之上编写的。
