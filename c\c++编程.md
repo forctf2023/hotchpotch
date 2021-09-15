@@ -5,7 +5,7 @@
 In simple terms, you need to use /FORCE:MULTIPLE linker option to make VC++ generate a valid exe or dll file, even if there are multiple definitions. You need to add this to:   
 Properties->Linker->Command Line->Additional Options   
 
-####我的理解 CRT是最底层的，连windows API都是基于CRT编写的；ATL基于CRT，是静态链接了CRT代码；
+#### 我的理解 CRT是最底层的，连windows API都是基于CRT编写的；ATL基于CRT，是静态链接了CRT代码；
 
 https://blog.csdn.net/memeai/article/details/20037773 本文参考   
 
