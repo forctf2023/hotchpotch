@@ -1,6 +1,11 @@
 ### CRT MFC ATL
 
-我的理解 CRT是最底层的，连windows API都是基于CRT编写的；ATL基于CRT，是静态链接了CRT代码；
+#### vs 报error LNK2005 XXX defined in XXX  
+当是关于nafxcw.lib libcpmt.lib 等这些库的时候  大概率是因为LIBCMT.lib nafxcw.lib两个库重定义了同样的函数（跟上面crt atl mfc有关），和可以用在工程配置Linker的input手动设置link顺序（并且在ignore中添加两个库解决）；而更简便的方式是在linker->Command Line->Additional Options中添加/FORCE:MULTIPLE解决
+In simple terms, you need to use /FORCE:MULTIPLE linker option to make VC++ generate a valid exe or dll file, even if there are multiple definitions. You need to add this to:   
+Properties->Linker->Command Line->Additional Options   
+
+####我的理解 CRT是最底层的，连windows API都是基于CRT编写的；ATL基于CRT，是静态链接了CRT代码；
 
 https://blog.csdn.net/memeai/article/details/20037773 本文参考   
 
@@ -35,4 +40,5 @@ CRT原先是指Microsoft开发的C Runtime Library，用于操作系统的开发
        所以还是看看CRT的源码吧——看看那些针对硬件平台的汇编；看看VC的标准C++库和CRT关系；再看看其他操作系统的源代码，想想CRT中的哪些部分可以支持用来写操作系统，而如果我自己写系统，又需要哪些东西；甚至你可以看看DOS的源代码，想想和CRT的相似性，以及历史渊源。可惜不能看到Windows的源代码，否则一切就清楚了。
 
        最后再说一句，C++当然不是Microsoft的专利。但是Microsoft选择了C++，并取得了成功，这是肯定的了：象CRT，象VC，象Windows，象Office，象 SQLServer......这一方面说明了C++的优势，一方面也是Microsoft自身的因素在起作用。然后，它当然要紧抓C++的大旗，大力宣扬它自己的C++，并排斥其他的C++。这就是帝国的“风范”了。所以对Microsoft，总是即恨且爱，总希望哪天它会良心发现——当然这只是幻想罢了。不过，肯定该肯定的，否定该否定的，总是应该的。但就产品而言，Microsoft不是最好的，但大多都是最成功的，在看到它的不足的同时，也要看到它的优点。存在的即使不是合理的，也一定有它的合理性。所以，不能简单用一两句话评价Microsoft及它的成功。惟有一点是可以肯定的，它决定选择C ++，真是太英明了！
+
 
