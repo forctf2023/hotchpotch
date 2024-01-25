@@ -102,3 +102,10 @@ CentOS release 6.8 (Final)
 64
 ```
 显示的结果直接就是位数。
+
+### 杂命令记录
+```
+guestmount -a /mnt/hgfs/FortiGate-VM64-7.2.4/FortiGate-VM64-disk2.vmdk -m /dev/sda1 -r /mnt/FortigateVm724_vmdk_mount
+```
+把/mnt/hgfs/FortiGate-VM64-7.2.4/FortiGate-VM64-disk2.vmdk中的/dev/sda1磁盘（我理解是磁盘？）挂载到/mnt/FortigateVm724_vmdk_mount（需要提前mkdir 这个路径）
+ps： -r/--ro 表示只读，--rw表示读写
